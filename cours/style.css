@@ -35,7 +35,7 @@ p {
   opacity: 1;
   transform: translateX(0);
 }
-.mousemove{
+.mousemove {
   height: 50px;
   width: 50px;
   border: 2px solid pink;
@@ -48,16 +48,36 @@ p {
   z-index: -1;
 }
 
-nav{
+nav {
   background: pink;
   position: fixed;
   top: -50px;
   width: 100%;
   height: 50px;
-  transition : 0.4s;
+  transition: 0.4s;
+}
+nav::after {
+  content: "";
+  height: 150px;
+  width: 150px;
+  background: radial-gradient(
+    circle closest-side,
+    rgba(255, 255, 255, 0.94),
+    transparent
+  );
+  position: absolute;
+  transform: translate(-50%, -50%);
+  transition: 0.25s;
+  z-index: 20;
+  opacity: 0;
+  left: var(--x);
+  top: var(--y);
+}
+nav:hover::after {
+  opacity: 1;
 }
 
-ul{
+ul {
   display: flex;
   align-items: center;
   justify-content: space-around;
